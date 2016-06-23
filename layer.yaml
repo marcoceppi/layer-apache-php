@@ -1,0 +1,29 @@
+includes:
+  - 'layer:basic'
+  - 'interface:http'
+defines:
+  sites:
+    type: object
+    minProperties: 1
+    items:
+      - type: object
+        properties:
+          server_name:
+            type: string
+          options:
+            type: string
+          install_from:
+            type: object
+            properties:
+              source:
+                type: string
+              checksum:
+                type: string
+              hash_type:
+                 type: string
+                 enum:
+                   - sha256
+                   - sha1
+                   - md5
+        required:
+          - 'server_name'
